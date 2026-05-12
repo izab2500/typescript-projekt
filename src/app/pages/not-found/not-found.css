@@ -1,0 +1,53 @@
+.not-found {
+  height: fit-content;
+  transform: translateY(30%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:5px;
+  text-align: center;
+  background-color:var(--bg);
+  color: var(--text);
+}
+
+.emoji {
+  font-size: 4rem;
+  margin-bottom: 5px;
+}
+
+h1 {
+  font-size: 6rem;
+  margin: 0;
+  color: var(--text);
+}
+
+h2 {
+  margin-top: 10px;
+  margin-bottom: 16px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+p {
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+}
+
+.small-text {
+  font-size: 0.9rem;
+  margin-bottom: 36px;
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 16px 24px;
+  border-radius: 10px;
+  background: #111;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  cursor:pointer;
+}
