@@ -1,0 +1,47 @@
+<section>
+    <h2>Skriv till oss</h2>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)" autocomplete="off">
+        <div>
+            <label for="name">Namn:</label>
+            <input type="text" id="name" name="name" required [(ngModel)]="name" #nameInput="ngModel">
+
+            @if(nameInput.touched && nameInput.invalid) {
+            <div class="err-msg">Fältet får inte lämnas tomt</div>
+            }
+        </div>
+        <div>
+            <label for="email">E-post:</label>
+            <input type="email" id="email" name="email" required
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" [(ngModel)]="email" #emailInput="ngModel">
+
+            @if(emailInput.touched && emailInput.invalid) {
+            <div class="err-msg">Ogiltig e-post</div>
+            }
+        </div>
+        <div>
+            <label for="message">Meddelande:</label>
+            <textarea id="message" name="message" required [(ngModel)]="message" #messageInput="ngModel"></textarea>
+
+            @if(messageInput.touched && messageInput.invalid) {
+            <div class="err-msg">Fältet får inte lämnas tomt</div>
+            }
+        </div>
+
+        <button type="submit">Skicka</button>
+
+    </form>
+    <div>
+        <app-image src="/contact/email-writing-flat-style-design.png"
+            alt="Ett tecknat format av en manlig gestalt som skriver ett meddelande" [width]="400" [height]="328"
+            [priority]="true" />
+    </div>
+
+    @if(successMessage) {
+    <p class="success-msg">{{ successMessage }}</p>
+    }
+
+    @if(errorMessage) {
+    <p class="err-msg">{{ errorMessage }}</p>
+    }
+</section>
