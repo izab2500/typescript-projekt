@@ -1,0 +1,13 @@
+.logo p:first-child {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    font-style: oblique;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.logo p:last-child {
+    color: var(--text-primary);
+}
+

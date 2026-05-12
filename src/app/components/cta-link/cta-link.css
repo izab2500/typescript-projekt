@@ -1,0 +1,29 @@
+a {
+    text-decoration: none;
+    font-size: 1.05rem;
+    display: block;
+    border-radius: 4px;
+}
+
+a::first-letter {
+    text-transform: capitalize;
+
+}
+
+.cta-home-hero {
+    width: 160px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background-color: mediumblue;
+    color: white;
+}
+
+.cta-home-banner {
+    width: 200px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background-color: rgb(34, 197, 94, 1);
+    color: whitesmoke;
+}

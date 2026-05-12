@@ -1,0 +1,17 @@
+<header>
+    <div class="icons-small" (click)="toggleNav()">
+        <div class="hamburger" [class.hidden]="isOpen">☰</div>
+        <div class="close" [class.hidden]="!isOpen">X</div>
+    </div>
+    <app-logo title="öpnna akademin" slogan="Gratis utbildning för alla, överallt" />
+    <nav [class.hidden]="!isOpen">
+        <ul>
+            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                    (click)="toggleNav()">hem</a></li>
+            <li><a routerLink="/kurser" routerLinkActive="active" (click)="toggleNav()">kurser</a></li>
+            <li><a routerLink="/ramschema" routerLinkActive="active" (click)="toggleNav()">ramschema</a></li>
+            <li><a routerLink="/om" routerLinkActive="active" (click)="toggleNav()">om</a></li>
+            <li><a routerLink="/kontakt" routerLinkActive="active" (click)="toggleNav()">kontakt</a></li>
+        </ul>
+    </nav>
+</header>
