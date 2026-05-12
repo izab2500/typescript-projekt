@@ -1,0 +1,55 @@
+<section>
+    <h1>Ramschema</h1>
+    <table>
+        @if (studyPlanService.courseIdsLS().length > 0) {
+        <thead>
+            <tr>
+                <th>Kurskod</th>
+                <th>Kursnamn</th>
+                <th>Poäng</th>
+                <th>Ämne</th>
+                <th>Kursplan</th>
+                <th>Ta bort</th>
+            </tr>
+        </thead>
+        }
+        <tbody>
+            @for (courseId of studyPlanService.courseIdsLS(); track $index) {
+            <tr>
+                <td>{{ courseService.allCoursesMap.get(courseId)?.courseCode }}</td>
+                <td>{{ courseService.allCoursesMap.get(courseId)?.courseName }}</td>
+                <td>{{ courseService.allCoursesMap.get(courseId)?.points }}</td>
+                <td>{{ courseService.allCoursesMap.get(courseId)?.subject }}</td>
+                <td>
+                    <a [href]="courseService.allCoursesMap.get(courseId)?.syllabus" target="_blank"
+                        rel="noopener noreferrer">
+                        kursplan
+                    </a>
+                </td>
+                <td>
+                    <button (click)="studyPlanService.deleteCourseIdLS(courseId)" type="button">
+                        Ta bort
+                    </button>
+                </td>
+            </tr>
+            } @empty {
+            <tr class="last-tr">
+                <td>Inget ramschema har skapats</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    @if (studyPlanService.courseIdsLS().length > 0) {
+    <div>
+        <p>
+            <span>Antal kurser:</span>
+            <span>{{ studyPlanService.numberOfCoursesIdsLS() }}</span>
+        </p>
+
+        <p>
+            <span>Antal poäng:</span>
+            <span>{{ studyPlanService.calcCredits() }} hp</span>
+        </p>
+    </div>
+    }
+</section>
