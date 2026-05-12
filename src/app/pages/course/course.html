@@ -1,0 +1,86 @@
+<section>
+    <h1>Kurser</h1>
+    <form>
+        <div>
+            <label for="search">Filtrerar kurser:</label>
+            <input type="search" id="search" name="search" placeholder="Skriv kurskod eller kursnamn"
+                [value]="courseService.searchString" #searchInput
+                (input)="courseService.filterSearch(searchInput.value)">
+        </div>
+        <div>
+            <label for="subject">Ämne:</label>
+            <select name="subject" id="subject" [value]="courseService.choosedSubject" #subjectSelect
+                (change)="courseService.sortBySubject(subjectSelect.value)">
+                <option value="">
+                    Välj ett ämne
+                </option>
+                @for(subject of courseService.subjects(); track subject) {
+                <option [value]="subject">
+                    {{subject}}
+                </option>
+                }
+            </select>
+        </div>
+    </form>
+    <div>
+        <p> <span>{{courseService.courses().length}}</span> av <span>{{courseService.allCourses.length}}</span> kurser
+        </p>
+    </div>
+    <table>
+        <thead>
+            <tr (click)="courseService.sortByColumn($event)">
+                <th id="courseCode">Kurskod {{courseService.sortColumn !== "courseCode" ? "" : (
+                    courseService.sortColumn === "courseCode" && courseService.sortDirection === "ascending" ? "▲"
+                    : "▼" )}}</th>
+                <th id="courseName">Kursnamn {{courseService.sortColumn !== "courseName" ? "" :
+                    (courseService.sortColumn === "courseName" && courseService.sortDirection === "ascending" ?
+                    "▲" : "▼" )}}</th>
+                <th id="points">Poäng {{courseService.sortColumn !== "points" ? "" : (courseService.sortColumn ===
+                    "points" && courseService.sortDirection === "ascending" ? "▲" : "▼" )}}
+                </th>
+                <th id="subject">Ämne {{courseService.sortColumn !== "subject" ? "" : (courseService.sortColumn ===
+                    "subject" && courseService.sortDirection === "ascending" ? "▲" : "▼"
+                    )}}</th>
+                <th>Kursplan</th>
+                <th>Ramschema</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(course of courseService.courses(); track $index) {
+            <tr>
+                <td>{{course.courseCode}}</td>
+                <td>{{course.courseName}}</td>
+                <td>{{course.points}}</td>
+                <td>{{course.subject}}</td>
+                <td>
+                    <a [href]="course.syllabus" target="_blank" and rel="noopener noreferrer">kursplan</a>
+                </td>
+                <td>
+                    <button (click)="isSelected(course.courseCode)
+    ? studyPlanService.deleteCourseIdLS(course.courseCode)
+    : studyPlanService.addCourseIdLS(course.courseCode)" [class.selected]="isSelected(course.courseCode)"
+                        type="button">
+
+                        {{ isSelected(course.courseCode) ? 'Ta bort' : 'Lägg till' }}
+
+                    </button>
+                </td>
+            </tr>
+            } @empty {
+            <tr>
+                <td>Inga kurser hittades</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</section>
+
+@if(courseService.courses().length >= 50) {
+<div class="show-more-courses">
+    <p> <span>{{courseService.courses().length}}</span> kurser av <span>{{courseService.allCourses.length}}</span>
+    </p>
+    @if(courseService.courses().length < courseService.currentCoursesState.length) { <button type="button"
+        (click)="courseService.coursesBy50(courseService.currentCoursesState)">Visa fler kurser</button>
+        }
+</div>
+}

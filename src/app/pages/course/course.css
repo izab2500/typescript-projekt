@@ -1,0 +1,84 @@
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1440px;
+    margin-inline: auto;
+    overflow-x: auto;
+}
+
+section form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+section form div {
+    width: 100%;
+}
+
+section form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+section form input,
+section form select {
+    width: 100%;
+    height: 40px;
+}
+
+section table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+section table th,
+section table td {
+    border-bottom: 1px solid lightgray;
+    padding: 20px;
+    text-align: left;
+    user-select: none;
+}
+
+section table th {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+section table a {
+    color: black;
+}
+
+section table button {
+    background-color: mediumblue;
+    color: white;
+    border: none;
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+section table button.selected {
+    background-color: maroon;
+}
+
+.show-more-courses {
+    display: flex;
+    gap: 40px;
+}
+
+.show-more-courses button {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    padding: 8px 5px;
+    cursor: pointer;
+}
+
+.show-more-courses button:hover {
+    background-color: var(--primary);
+}
