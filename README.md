@@ -108,7 +108,7 @@ Webbplatsen är responsiv och anpassar sig efter olika skrämstorlekar:
 - Pagination: 50 kurser åt gången med “visa fler”-knapp  
 - Sökning inom ämnesområde
 - Sortering på kursattribut (kurskod, kursnamn, poäng och ämne) (stigande/fallande)  
-- Toggling av kurser i ramschema:
+- Toggling av kurser för ramschema (Kurser-sidan):
   - "Lägg till" eller “Ta bort” beroende på status  
 
 
