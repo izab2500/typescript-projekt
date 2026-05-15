@@ -20,7 +20,7 @@ html {
 }
 
 app-root {
-    max-width: 1560pxpx;
+    max-width: 1560px;
     width: 100%;
     min-height: 100vh;
     margin-inline: auto;
