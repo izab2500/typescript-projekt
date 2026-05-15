@@ -116,3 +116,7 @@ Webbplatsen är responsiv och anpassar sig efter olika skrämstorlekar:
 
 [Öppna Akademin](https://typescript-projekt.vercel.app/)
 
+
+## 📄 Rapport
+
+[Öppna rapport](docs/programmering_i_typescript-projekt.pdf)
