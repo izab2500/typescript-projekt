@@ -114,5 +114,5 @@ Webbplatsen är responsiv och anpassar sig efter olika skrämstorlekar:
 
 ## 🌐 Besök webbplatsen
 
-[Öppna Akademin](url)
+[Öppna Akademin](typescript-projekt.vercel.app)
 
